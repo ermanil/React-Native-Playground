@@ -1,43 +1,24 @@
 import React from "react";
 import { Text, StyleSheet, Button, View } from "react-native";
+import ButtonApp from "../components/Button";
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View>
-      <Text style={styles.text}>HomeScreen</Text>
-      <Button
-        title="Go to ComponentsScreen"
-        onPress={() => navigation.navigate("Components")}
-      />
-      <Button
-        title="Go to ListScreen"
+    <View style={{ alignItems: "center", flex: 1, justifyContent: "center" }}>
+      <ButtonApp
+        title="Rendering List"
         onPress={() => navigation.navigate("List")}
       />
-      <Button
-        title="Go to ImageScreen"
-        onPress={() => navigation.navigate("Image")}
-      />
-      <Button
-        title="Go to CounterScreen"
+      <ButtonApp title="Images" onPress={() => navigation.navigate("Image")} />
+      <ButtonApp
+        title="Counter"
         onPress={() => navigation.navigate("Counter")}
       />
-      <Button
-        title="Go to ColorScreen"
-        onPress={() => navigation.navigate("Color")}
-      />
-      <Button
-        title="Go to SquareScreen"
+      <ButtonApp title="Colors" onPress={() => navigation.navigate("Color")} />
+      <ButtonApp
+        title="Color Regulator"
         onPress={() => navigation.navigate("Square")}
       />
-      <Button
-        title="Go to TextScreen"
-        onPress={() => navigation.navigate("Text")}
-      />
-      <Button
-        title="Go to BoxScreen"
-        onPress={() => navigation.navigate("Box")}
-      />
-      <Button title="Go to Test" onPress={() => navigation.navigate("Test")} />
     </View>
   );
 };

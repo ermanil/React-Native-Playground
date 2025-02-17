@@ -2,22 +2,19 @@ import { View, StyleSheet } from "react-native";
 
 import ImageDetail from "../components/ImageDetail";
 
-const ImageScreen = ({ title, score, imageSource }) => {
+const ImageScreen = ({ title, imageSource }) => {
   return (
     <View style={styles.container}>
       <ImageDetail
         title="Beach"
-        score={0}
         imageSource={require("../../assets/beach.jpg")}
       />
       <ImageDetail
-        title="forest"
-        score={0}
+        title="Forest"
         imageSource={require("../../assets/forest.jpg")}
       />
       <ImageDetail
-        title="mountain"
-        score={0}
+        title="Mountain"
         imageSource={require("../../assets/mountain.jpg")}
       />
     </View>
@@ -25,7 +22,12 @@ const ImageScreen = ({ title, score, imageSource }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    alignItems: "center",
+    justifyContent: "center",
+    flex: 1,
+    backgroundColor: "lightyellow",
+  },
 });
 
 export default ImageScreen;

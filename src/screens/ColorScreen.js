@@ -5,7 +5,7 @@ const ColorScreen = (props) => {
   const [colors, setColors] = useState([]);
 
   return (
-    <View style={styles.container}>
+    <View>
       <Button
         title="Add a Color"
         onPress={() => {
@@ -18,7 +18,7 @@ const ColorScreen = (props) => {
         data={colors}
         renderItem={({ item }) => {
           return (
-            <View style={{ height: 100, width: 100, backgroundColor: item }} />
+            <View style={[styles.colorSquare, { backgroundColor: item }]} />
           );
         }}
       />
@@ -35,7 +35,13 @@ const randomRgb = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  colorSquare: {
+    height: 100,
+    width: "80%",
+    alignSelf: "center",
+    marginTop: 20,
+    borderRadius: 20,
+  },
 });
 
 export default ColorScreen;

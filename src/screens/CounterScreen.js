@@ -1,41 +1,55 @@
-import { useReducer } from "react";
-import { Text, View, StyleSheet, Button } from "react-native";
+import { useState } from "react";
+import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case "increment":
-      return { ...state, count: state.count + action.payload };
-    case "decrement":
-      return { ...state, count: state.count - action.payload };
-    default:
-      return state;
-  }
-};
-
-const CounterScreen = (props) => {
-  const [state, dispatch] = useReducer(reducer, { count: 0 });
+const CounterScreen = () => {
+  const [count, setCount] = useState(0);
 
   return (
     <View style={styles.container}>
-      <Button
-        title="Increase"
-        onPress={() => {
-          dispatch({ type: "increment", payload: 1 });
-        }}
-      />
-      <Button
-        title="Decrease"
-        onPress={() => {
-          dispatch({ type: "decrement", payload: 1 });
-        }}
-      />
-      <Text>Courrent count: {state.count} </Text>
+      <Text style={styles.counterText}>Current count: {count}</Text>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setCount(count + 1)}
+      >
+        <Text style={styles.buttonText}>Increase</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => setCount(count - 1)}
+      >
+        <Text style={styles.buttonText}>Decrease</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  counterText: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: "#3498db",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+    marginVertical: 10,
+    width: 150,
+    alignItems: "center",
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
 });
 
 export default CounterScreen;
